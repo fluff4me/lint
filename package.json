@@ -1,5 +1,6 @@
 {
 	"private": true,
+	"main": "index.mjs",
 	"dependencies": {
 		"eslint": "9.17.0",
 		"typescript-eslint": "8.19.0",
