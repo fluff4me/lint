@@ -1,4 +1,5 @@
 {
+	"name": "lint",
 	"private": true,
 	"main": "index.mjs",
 	"dependencies": {
