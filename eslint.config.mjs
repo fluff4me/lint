@@ -49,6 +49,7 @@ export function config (root) {
 				'@typescript-eslint/no-unsafe-declaration-merging': 'off',
 				'@typescript-eslint/unbound-method': 'off',
 				'@typescript-eslint/no-empty-object-type': ['warn', { allowInterfaces: 'always' }],
+				'@typescript-eslint/no-unsafe-enum-comparison': 'off',
 
 				'@stylistic/no-trailing-spaces': 'off', // removed by typescript
 				'@stylistic/indent': 'off',
