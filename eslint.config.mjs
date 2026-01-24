@@ -50,6 +50,8 @@ export function config (root) {
 				'@typescript-eslint/unbound-method': 'off',
 				'@typescript-eslint/no-empty-object-type': ['warn', { allowInterfaces: 'always' }],
 				'@typescript-eslint/no-unsafe-enum-comparison': 'off',
+				'@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
+				'@typescript-eslint/no-wrapper-object-types': 'off',
 
 				'@stylistic/no-trailing-spaces': 'off', // removed by typescript
 				'@stylistic/indent': 'off',
