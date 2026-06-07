@@ -5,6 +5,7 @@ import 'eslint-plugin-only-warn'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 import noBlankLinesInOptionalBlocks from './rule/no-blank-lines-in-optional-blocks.mjs'
+import typeGenericSpacing from './rule/type-generic-spacing.mjs'
 import noUnusedExpressions from './rule/no-unused-expressions.mjs'
 
 /** @import {TSESLint} from "@typescript-eslint/utils" */
@@ -60,10 +61,12 @@ export function config (root, options) {
 				'@typescript-eslint/no-unsafe-enum-comparison': 'off',
 				'@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
 				'@typescript-eslint/no-wrapper-object-types': 'off',
+				'@typescript-eslint/only-throw-error': ['warn', { allow: ['void'] }],
 
 				'@stylistic/no-trailing-spaces': 'off', // removed by typescript
 				'@stylistic/indent': 'off',
 				'@stylistic/indent-binary-ops': 'off',
+				'@stylistic/type-generic-spacing': 'off',
 				'@stylistic/multiline-ternary': 'off',
 				'@stylistic/spaced-comment': ['warn', 'always', { exceptions: ['/'], markers: ['#region', '#endregion'] }],
 				'@stylistic/space-before-function-paren': ['warn', 'always'],
@@ -123,12 +126,14 @@ export function config (root, options) {
 					rules: {
 						...noUnusedExpressions,
 						...noBlankLinesInOptionalBlocks,
+						...typeGenericSpacing,
 					},
 				},
 			},
 			rules: {
 				'fluff/no-unused-expressions': 'warn',
 				'fluff/no-blank-lines-in-optional-blocks': 'warn',
+				'fluff/type-generic-spacing': 'warn',
 			},
 		},
 	]
