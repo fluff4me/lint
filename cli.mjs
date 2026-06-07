@@ -11,6 +11,7 @@ const dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const globs = ['*.ts', '*.tsx', '*.js', '*.mjs', '*.cjs', '*.mts', '*.cts']
 const bin = process.platform === 'win32' ? 'eslint.cmd' : 'eslint'
+const args = process.argv.slice(2)
 
 async function findEslint () {
 	const candidates = [
@@ -50,7 +51,7 @@ async function main () {
 	const eslint = await findEslint()
 
 	await new Promise((resolve, reject) => {
-		const childProcess = spawn(eslint, ['--', ...files], {
+		const childProcess = spawn(eslint, [...args, '--', ...files], {
 			cwd: process.cwd(),
 			stdio: 'inherit',
 			shell: process.platform === 'win32',
