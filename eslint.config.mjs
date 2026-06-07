@@ -12,7 +12,7 @@ import noUnusedExpressions from './rule/no-unused-expressions.mjs'
 /** @type {(root: string) => TSESLint.Linter.ConfigType[]} */
 export function config (root) {
 	return [
-		{ files: ['**/*.{js,mjs,cjs,ts}'] },
+		{ files: ['**/*.{js,mjs,cjs,ts,mts,cts,tsx}'] },
 		{ languageOptions: { globals: { ...globals.browser, ...globals.node } } },
 		pluginJs.configs.recommended,
 		...tseslint.configs.recommendedTypeChecked,
