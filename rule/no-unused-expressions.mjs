@@ -5,7 +5,9 @@ import rule from '../util/rule.mjs'
 /** @import {TSESLint, TSESTree} from "@typescript-eslint/utils" */
 
 export default rule(() => {
-	const baseRule = /** @type {Exclude<TSESLint.LooseRuleDefinition, Function>} */(tseslint.plugin.rules?.['no-unused-expressions'])
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+	const rules = /** @type {Record<string, TSESLint.LooseRuleDefinition | undefined>} */(/** @type {unknown} */(tseslint.plugin.rules))
+	const baseRule = /** @type {Exclude<TSESLint.LooseRuleDefinition, Function>} */(rules['no-unused-expressions'])
 	return {
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		defaultOptions: /** @type {any} */ (baseRule)?.defaultOptions,

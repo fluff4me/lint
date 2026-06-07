@@ -26,7 +26,7 @@ export default function rule (messages, provider) {
 
 	const callerFilename = firstCallsite.slice(firstCallsite.lastIndexOf('/') + 1, firstCallsite.lastIndexOf('.mjs'))
 
-	if (typeof messages === "function")
+	if (typeof messages === 'function')
 		return { [callerFilename]: messages() }
 
 	const module = /** @type {NonNullable<typeof provider>} */(provider)()

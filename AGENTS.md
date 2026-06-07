@@ -4,4 +4,4 @@ Validation commands must be non-emitting unless the user explicitly approves an 
 
 Run these validation commands in parallel:
 - `pnpm exec tsc --noEmit --incremental false`
-- `pnpm exec lint`
+- `node cli.mjs`

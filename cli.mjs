@@ -15,8 +15,8 @@ const args = process.argv.slice(2)
 
 async function findEslint () {
 	const candidates = [
-		path.resolve(process.cwd(), 'node_modules', '.bin', bin),
 		path.resolve(dirname, 'node_modules', '.bin', bin),
+		path.resolve(process.cwd(), 'node_modules', '.bin', bin),
 	]
 
 	for (const candidate of candidates) {
@@ -37,6 +37,7 @@ async function main () {
 		.split(/\r?\n/)
 		.map(file => file.trim())
 		.filter(Boolean)
+	/** @type {string[]} */
 	const files = []
 
 	for (const file of trackedFiles) {

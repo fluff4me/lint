@@ -9,8 +9,16 @@ import noUnusedExpressions from './rule/no-unused-expressions.mjs'
 
 /** @import {TSESLint} from "@typescript-eslint/utils" */
 
-/** @type {(root: string) => TSESLint.Linter.ConfigType[]} */
-export function config (root) {
+/**
+ * @param {string} root
+ * @param {{ allowDefaultProject?: string[] }} [options]
+ * @returns {TSESLint.Linter.ConfigType[]}
+ */
+export function config (root, options) {
+	const projectService = options?.allowDefaultProject?.length
+		? { allowDefaultProject: options.allowDefaultProject }
+		: true
+
 	return [
 		{ files: ['**/*.{js,mjs,cjs,ts,mts,cts,tsx}'] },
 		{ languageOptions: { globals: { ...globals.browser, ...globals.node } } },
@@ -20,7 +28,7 @@ export function config (root) {
 		{
 			languageOptions: {
 				parserOptions: {
-					projectService: true,
+					projectService,
 					tsconfigRootDir: root,
 				},
 			},
